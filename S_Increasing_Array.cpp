@@ -3,20 +3,21 @@ using namespace std;
 
 int main()
 {
-    long long int arraySize;
-    cin >> arraySize;
-    long long int integerArray[arraySize];
-    for (long long int i = 0; i < arraySize; i++)
+    long long int vectorSize;
+    cin >> vectorSize;
+    vector<long long int> integerVector(vectorSize);
+    for (int i = 0; i < vectorSize; i++)
     {
-        cin >> integerArray[i];
+        cin >> integerVector[i];
     }
 
     long long int count = 0;
-    for (long long int i = 1; i < arraySize; i++)
+    for (int i = 1; i < vectorSize; i++)
     {
-        if (integerArray[i] < integerArray[i - 1])
+        if (integerVector[i] < integerVector[i - 1])
         {
-            count = count + (integerArray[i - 1] - integerArray[i]);
+            count = count + (integerVector[i - 1] - integerVector[i]);
+            integerVector[i] = integerVector[i - 1];
         }
     }
 
